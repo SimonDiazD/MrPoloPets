@@ -1,0 +1,15 @@
+# Archivos compilados de Maven
+target/
+*.war
+*.ear
+*.nar
+*.jar
+
+# Archivos de configuración de Eclipse/VSCode que no se deben compartir
+.classpath
+.project
+.settings/
+.vscode/
+
+# Logs y temporales
+*.log
