@@ -20,7 +20,6 @@ public class ClienteServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        // Inicializamos la implementación una sola vez
         this.clienteDAO = new ClienteDAOImpl();
     }
 
@@ -30,14 +29,13 @@ public class ClienteServlet extends HttpServlet {
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
 
-        // 2. Obtener datos de la BD
         List<ClienteDTO> listaClientes = clienteDAO.listarClientes();
 
-        // 3. Convertir Java -> JSON usando Gson
+        // Convertir Java -> JSON usando Gson
         Gson gson = new Gson();
         String json = gson.toJson(listaClientes);
 
-        // 4. Enviar respuesta
+        // Enviar respuesta
         PrintWriter out = resp.getWriter();
         out.print(json);
         out.flush();

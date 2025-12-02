@@ -2,8 +2,7 @@ package com.mrpolopets.Implements;
 
 import com.mrpolopets.Model.ClienteDTO;
 import com.mrpolopets.Dao.*;
-import com.mrpolopets.Dao.config.*; // Asegúrate que este import coincida con tu clase de conexión
-
+import com.mrpolopets.Dao.config.*; 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,7 +17,6 @@ public class ClienteDAOImpl implements ClienteDao {
         List<ClienteDTO> lista = new ArrayList<>();
         String sql = "SELECT * FROM Clientes";
 
-        // Usamos try-with-resources para cerrar la conexión automáticamente
         try (Connection con = Db.getConexion();
              PreparedStatement ps = con.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {

@@ -424,14 +424,12 @@ function exportJSON() {
 }
 
 function downloadPDF() {
-    // Validación: Si no ha seleccionado nada, no hacemos nada
     if (!currentReportType) {
         showToast("Por favor selecciona un reporte primero.");
         return;
     }
 
     showToast("Generando PDF...");
-
     // Construimos la URL enviando el parámetro "tipo" al Servlet
     // Ejemplo: reportes/pdf?tipo=mascota
     const url = `reportes/pdf?tipo=${currentReportType}`;

@@ -78,7 +78,7 @@ public class ReportePDFDAOImpl implements ReportePDFDao {
         } catch (Exception e) { e.printStackTrace(); }
     }
 
-    // --- AQUI AGREGAS LAS OTRAS IMPLEMENTACIONES (CLIENTES Y CONSULTAS) ---
+
     @Override
     public void generarReporteClientes(List<ClienteDTO> lista, OutputStream out) {
         try {
@@ -97,8 +97,6 @@ public class ReportePDFDAOImpl implements ReportePDFDao {
             PdfPTable table = new PdfPTable(5);
             table.setWidthPercentage(100);
             
-            // Ajustamos anchos: Nombre un poco más ancho, ID mascota más pequeño
-            // Proporciones: Nombre(3), ID(1), Tel(2), Dir(3), Mascotas(2)
             float[] columnWidths = {3f, 1f, 2f, 3f, 2f}; 
             table.setWidths(columnWidths);
 
@@ -141,8 +139,6 @@ public class ReportePDFDAOImpl implements ReportePDFDao {
             PdfPTable table = new PdfPTable(5);
             table.setWidthPercentage(100);
 
-            // DEFINIMOS ANCHOS PERSONALIZADOS (IMPORTANTE)
-            // Fecha y IDs columnas angostas. Síntomas y Tratamiento columnas anchas.
             float[] anchos = {1.5f, 1.5f, 1.5f, 4f, 4f}; 
             table.setWidths(anchos);
 
@@ -170,8 +166,6 @@ public class ReportePDFDAOImpl implements ReportePDFDao {
         }
     }
 
-
-    // --- MÉTODO PRIVADO DE AYUDA (NO VA EN LA INTERFAZ) ---
     private void addTableHeader(PdfPTable table, String... headers) {
         Stream.of(headers).forEach(columnTitle -> {
             PdfPCell header = new PdfPCell();

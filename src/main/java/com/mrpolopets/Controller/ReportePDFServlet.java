@@ -11,8 +11,7 @@ import java.io.IOException;
 
 @WebServlet("/reportes/pdf")
 public class ReportePDFServlet extends HttpServlet {
-
-    // Instancias de tus DAOs
+    
     private MascotaDAOImpl mascotaDAO = new MascotaDAOImpl();
     private VentaDAOImpl ventaDAO = new VentaDAOImpl();
     private ReportePDFDAOImpl reporteDAO = new ReportePDFDAOImpl();
